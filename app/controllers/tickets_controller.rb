@@ -52,8 +52,7 @@ class TicketsController < ApplicationController
     @ticket.destroy
 
     respond_to do |format|
-      format.html { redirect_to tickets_url, notice: "Ticket was successfully destroyed." }
-      format.json { head :no_content }
+      render :show, status: :ok
     end
   end
 
@@ -70,13 +69,13 @@ class TicketsController < ApplicationController
 
   def assign_ticket(ticket)
     # Names of the agents
-    agent_names = ["agent1", "agent2", "agent3"]
+    agent_names = ["Agent1", "Agent2"]
 
     # Calculate the index of the agent to assign the ticket to based on the ticket ID
     agent_index = ticket.id % agent_names.length
 
     # Assign the agent name to the agent_id attribute of the ticket record
     agent_name = agent_names[agent_index]
-    #ticket.update(assigned_to_user: agent_name, assigned_to_user_id: agent_index)
+    ticket.update(assigned_to_user: agent_name, assigned_to_user_id: agent_index)
   end
 end

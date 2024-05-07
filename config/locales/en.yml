@@ -36,3 +36,5 @@ t:
   sign_out: "Sign Out"
   profile: "Profile"
   agents: "Agents"
+  "select_language": "Select Language"
+  "add_agent": "Add Agent"
